@@ -12,9 +12,9 @@ function compararNotas (a, b) {
         }
     }
         if (pontosA > pontosB) {
-            return console.log("Alice wins")
+            return "Alice wins"
         } else if (pontosA < pontosB) {
-            return console.log("Bob wins")
+            return "Bob wins"
         }
 }
 
@@ -27,7 +27,7 @@ console.log(compararNotas(alice, bob));
 function digitalHouse(a, b) {
     let numeros = []; // saida dos numeros de 1 a 100
 
-    // console.log("ANTES DO-WHILE "+ numeros);
+
 
     for (let contador = 1; contador <= 100; contador++) {
         if (contador % a == 0 && contador % b == 0) {
