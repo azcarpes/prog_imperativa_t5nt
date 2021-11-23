@@ -27,7 +27,32 @@ let cliente3 = new CriarContas(142536, "conta corrente", 999, "Sheydi");
 
 let banco = {
     nomeBanco: "Banco Felino do Brasil",
-    clientes: [cliente1, cliente2, cliente3]
+    clientes: [cliente1, cliente2, cliente3],
+
+    consultarCliente: function(nomeTitular) {
+
+        let numClientes = 0
+
+        do{
+            if (this.clientes[numClientes].titularConta == nomeTitular) {
+                return this.clientes[numClientes]
+            }
+            numClientes++;
+        } while (numClientes<this.clientes.length);
+    },
+
+    deposito: function(nomeTitular, valor) {
+        for (let numCliente = 0; numCliente < this.clientes.length; numCliente++) {
+            if (this.clientes[numCliente].titularConta == nomeTitular) {
+                this.clientes[numCliente].saldoConta += valor;
+                return "Depósito realizado, seu novo saldo é de " + this.clientes[numCliente].saldoConta;
+            }
+        }
+    }
 }
 
 console.log(banco);
+
+console.log(banco.consultarCliente("Sheydi"));
+
+console.log(banco.deposito("Léia", 1000));
